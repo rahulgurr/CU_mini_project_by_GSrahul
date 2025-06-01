@@ -1,0 +1,40 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Tesseract output
+*.traineddata
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Output and log files
+*.log
+*.csv
+*.db
+output/
+output_plates/
+output_texts/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+
+# Model files
+*.pt
+
+# Mac / Windows
+.DS_Store
+Thumbs.db
