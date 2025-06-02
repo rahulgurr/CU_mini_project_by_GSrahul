@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 import subprocess
 import threading
 import os
+import sys
 
 # Set paths
 OUTPUT_FOLDER = "output_plates"
@@ -15,10 +16,32 @@ live_process = None
 # Ensure output folder exists
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
+#resource path 
+
+
+
+
 # Initialize GUI
 app = tk.Tk()
-app.title("Automated Vehicle Plate Recognition System")
+app.title("Automated Vehicle Number Plate Recognition System")
 app.geometry("1000x700")
+#university details
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
+
+ 
+app.configure(bg="#f0f0f0")
+app.resizable(False, False)
+info_label = tk.Label(
+    app,
+    text="Developed by Gurrapu Sai Rahul | UID: O24MSD160167 | Chandigarh University",
+    font=("Arial", 12, "italic"),
+    fg="gray"
+)
+info_label.pack(pady=(5, 0))
 
 # UI Elements
 img_label = tk.Label(app)
@@ -32,28 +55,15 @@ status_label.pack(pady=10)
 
 # Display latest output image and text
 def display_output():
-    try:
-        files = os.listdir(OUTPUT_FOLDER)
-        image_files = [f for f in files if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
-        if not image_files:
-            raise FileNotFoundError("No images found.")
-
-        latest = max([os.path.join(OUTPUT_FOLDER, f) for f in image_files], key=os.path.getctime)
-        img = Image.open(latest)
-        img = img.resize((800, 500))
-        img_tk = ImageTk.PhotoImage(img)
-        img_label.config(image=img_tk)
-        img_label.image = img_tk
-    except Exception as e:
-        messagebox.showerror("Error", f"No detected plate images found.\n{e}")
-        return
-
     if os.path.exists(OUTPUT_TEXT):
         with open(OUTPUT_TEXT, "r", encoding="utf-8") as f:
             plate = f.read().strip()
             text_label.config(text=f"Detected Plate: {plate}")
     else:
-        text_label.config(text="Detected Plate: [Not Found]")
+        text_label.config(text="Detected Plate: Completed")
+
+    # Instead of showing image, just show a popup
+    messagebox.showinfo("Process Completed", "Number plate detection completed.\nCheck 'output_plates' folder.")
 
 # Static detection from folder
 def run_static_detection():

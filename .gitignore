@@ -38,3 +38,6 @@ output_texts/
 # Mac / Windows
 .DS_Store
 Thumbs.db
+"__pycache__/" 
+"dist/" 
+"*.pyc" 
