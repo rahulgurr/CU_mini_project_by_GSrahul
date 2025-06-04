@@ -14,6 +14,8 @@
 ![Screenshot (33)](https://github.com/user-attachments/assets/cb832464-2b4f-47c3-af85-0913ae9fae4d)
 ## step 5 : static images should be loaded from test_images folder
 the detected images are in output_images the live_feed as well
-
+live_Detection was set for 30 sec.
+detection of static images from test_images are detected one by one please press+enter to check the tested images 
  
 >>>>>>> 9d401d91ce1014d1ed618a6a580bb9e92a844f05
+![Screenshot (32)](https://github.com/user-attachments/assets/a3aecc2b-5014-471a-922b-5e391cac090a)
