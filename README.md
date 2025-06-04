@@ -9,7 +9,7 @@
 
  ## step 3 : naviage to the project folder in vscode and isntall requirements of project with python command using cmd in vscode
  pip install -r requirements.txt
-
+>>this command should be run at project main folder only where you can see the requirements.txt
 ## step 4 : run gui_app.py it will open gui of the app 
 ![Screenshot (33)](https://github.com/user-attachments/assets/cb832464-2b4f-47c3-af85-0913ae9fae4d)
 ## step 5 : static images should be loaded from test_images folder
